@@ -20,7 +20,7 @@ void setup() {
 }
 
 void loop() {
-
+  /*
   if (ifBotton()) unit++; //  按鈕功能函數, 如果按鈕被按下, unit +1  
   setunitColor(255, 255, 71);  //  香蕉黃
 
@@ -31,7 +31,9 @@ void loop() {
     unit = 0;
   }
 */
-  Serial.println(status);
+  unit = 50;
+  setunitColor(255, 255, 71);  //  香蕉黃
+  //Serial.println(status);
   delay(100);  //防死機
 }
 
@@ -45,12 +47,11 @@ void setunitColor(int red, int green, int blue) {  // 設定LED顏色
 bool ifBotton() {                      // 檢查按鈕狀態
   status = !digitalRead(BUTTON_PINS);  // 取得按鈕狀態
 
-  if (!last_status && status){
-    last_status = status;                // 紀錄按鈕的狀態
+  if (!last_status && status) {
+    last_status = status;  // 紀錄按鈕的狀態
     return true;
-  }
-  else{
-    last_status = status;                // 紀錄按鈕的狀態
+  } else {
+    last_status = status;  // 紀錄按鈕的狀態
     return false;
   }
 }
